@@ -1,23 +1,28 @@
 package com.example.login.my.myloginapp;
 
-import org.springframework.stereotype.Controller;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-public class DemoController {
-  
-  @GetMapping("hello")
-  public String hello() {
-    return "hello";
-  }
+@RestController
+class DemoController {
+  private static Log log = LogFactory.getLog(DemoController.class);
 
-  @GetMapping( "success")
-  public String success() {
-    return "success";
-  }
+   @GetMapping(path = "hello", produces = "text/html")
+    public String hello() {
+        return "Hello!!!";
+    }
 
-  @GetMapping("/page1")
-  public String page1() {
-    return "page1";
-  }
+    @GetMapping(path = "success", produces = "text/html")
+    public String success() {
+      log.info("success通過");
+        return "成功!!!";
+    }
+
+    @GetMapping(path = "page1", produces = "text/html")
+    public String page1() {
+      log.info("ページ1通過");
+        return "ページ１";
+    }
 }
