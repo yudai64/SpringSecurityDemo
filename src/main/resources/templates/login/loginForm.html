@@ -15,6 +15,14 @@
 
   <div class="container">
     <h3 class="mt-4 mb-4">My Custom Login Page</h3>
+
+    <div th:if="${param.error}">
+      <p class="text-danger">Invalid username and password.</p>
+    </div>
+    <!-- <div th:if="${param.logout}">
+      You have been logged out.
+    </div> -->
+
     <form th:action="@{/authenticateTheUser}" method="post">
       <div class="form-group">
         <label for="exampleInputEmail1">User name</label>
