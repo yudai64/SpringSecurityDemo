@@ -5,7 +5,8 @@
         <title>Hello World!</title>
     </head>
     <body>
-        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+      <p class="text-success" sec:authorize="isAuthenticated()">User: <span sec:authentication="principal.username"></span></p>
+      <p class="text-success" sec:authorize="isAuthenticated()">Role(s): <span sec:authentication="principal.authorities"></span></p>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>
