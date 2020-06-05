@@ -22,9 +22,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
           .and()
           // LOGIN
           .formLogin()
-                // .loginPage("/showMyLoginPage")
-                // .loginProcessingUrl("/authenticateTheUser")
-                // .permitAll()
+                .loginPage("/showMyLoginPage")  //ログインのURL
+                .loginProcessingUrl("/authenticateTheUser")  //
+                .permitAll()
                 .defaultSuccessUrl("/success", true)
       // end
       ;
