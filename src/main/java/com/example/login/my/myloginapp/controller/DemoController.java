@@ -1,4 +1,4 @@
-package com.example.login.my.myloginapp;
+package com.example.login.my.myloginapp.controller;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

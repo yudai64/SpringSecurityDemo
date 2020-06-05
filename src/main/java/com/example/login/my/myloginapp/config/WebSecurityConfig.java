@@ -1,4 +1,4 @@
-package com.example.login.my.myloginapp;
+package com.example.login.my.myloginapp.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -17,15 +17,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
       http
           // AUTHORIZE
           .authorizeRequests()
-          /* */.mvcMatchers("/hello").permitAll()
-          /* */.anyRequest()
-          /*    */.authenticated()
+                .mvcMatchers("/hello").permitAll()
+                .anyRequest().authenticated()
           .and()
           // LOGIN
           .formLogin()
-          // /* */.loginPage("/login")
-          // /*    */.permitAll()
-          /* */.defaultSuccessUrl("/success", true)
+                // .loginPage("/showMyLoginPage")
+                // .loginProcessingUrl("/authenticateTheUser")
+                // .permitAll()
+                .defaultSuccessUrl("/success", true)
       // end
       ;
   }
