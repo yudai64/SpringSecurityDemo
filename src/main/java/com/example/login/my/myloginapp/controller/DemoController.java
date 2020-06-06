@@ -14,10 +14,20 @@ class DemoController {
         return "hello";
     }
 
-    @GetMapping("/success")
+    @GetMapping("/")
     public String success() {
       log.info("success通過");
-        return "success";
+        return "home";
+    }
+
+    @GetMapping("/leaders")
+    public String showLeaders() {
+      return "leaders";
+    }
+
+    @GetMapping("/systems")
+    public String showSystems() {
+      return "systems";
     }
 
 }

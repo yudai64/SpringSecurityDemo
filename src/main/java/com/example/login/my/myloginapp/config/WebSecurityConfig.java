@@ -18,6 +18,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
           // AUTHORIZE
           .authorizeRequests()
                 .mvcMatchers("/hello").permitAll()
+                .antMatchers("/").hasRole("EMPLOYEE")
+                .antMatchers("/leaders/**").hasRole("MANAGER")
+                .antMatchers("/systems/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
           .and()
           // LOGIN
@@ -25,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .loginPage("/showMyLoginPage")  //ログインのURL
                 .loginProcessingUrl("/authenticateTheUser")  //
                 .permitAll()
-                .defaultSuccessUrl("/success", true)
+                .defaultSuccessUrl("/", true)
           .and()
           //LOGOUT
           .logout()

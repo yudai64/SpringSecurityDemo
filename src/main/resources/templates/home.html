@@ -4,9 +4,28 @@
     <head>
         <title>Hello World!</title>
     </head>
+    <h2>Home Page</h2>
+
+    <hr>
+
     <body>
       <p class="text-success" sec:authorize="isAuthenticated()">User: <span sec:authentication="principal.username"></span></p>
       <p class="text-success" sec:authorize="isAuthenticated()">Role(s): <span sec:authentication="principal.authorities"></span></p>
+
+      <hr>
+
+      <p>
+        <a th:href="@{/leaders}">LeaderShip Meeting</a>
+        (Only for Manager peeps)
+      </p>
+
+      <p>
+        <a th:href="@{/systems}">IT Systems Meeting</a>
+        (Only for Admin peeps)
+      </p>
+
+      <hr>
+
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>
